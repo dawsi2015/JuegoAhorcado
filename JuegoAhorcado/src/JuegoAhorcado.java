@@ -2,7 +2,7 @@
 public class JuegoAhorcado {
 
 	public static void main(String[] args) {
-		System.out.println("Juego Ahorcado 1");
+		System.out.println("Juego Ahorcado 1a");
 
 	}
 
