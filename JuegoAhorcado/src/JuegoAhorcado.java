@@ -11,7 +11,7 @@ public class JuegoAhorcado {
         String[] palabras = new String[]{"tren", "coche", "repisa", "hola", "diez", "ordenador", "tomate", "monitor", "castillo", "ventana"};
         char[] array_resultado;
         String letra;
-        palabra_buena = palabras[(int) (Math.random() * 6)];
+        palabra_buena = palabras[(int) (Math.random() * 10)];
         tam = palabra_buena.length();
         array_resultado = new char[tam];
         
