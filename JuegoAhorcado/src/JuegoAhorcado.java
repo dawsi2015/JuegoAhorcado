@@ -15,10 +15,8 @@ public class JuegoAhorcado {
         palabra_buena = palabras[(int) (Math.random() * 10)]; //Selecciona de forma aleatoria una de las 10 palabras.
         tam = palabra_buena.length(); // Se calcula la longitud de la palabra para dibujar '-'.
         array_resultado = new char[tam];
-        
         for (int i = 0; i<tam; i++) {
         	array_resultado[i] = '-';
-        	
         }
         
         System.out.print("palabra: ");
@@ -31,7 +29,6 @@ public class JuegoAhorcado {
         System.out.print("palabra: ");
         System.out.println(array_resultado); // Dibuja de nuevo la palabra con las letras acertadas
         }while(intento<6);// Números de intentos 6
-        
         /*FRAN*/
         
          /*
@@ -65,7 +62,6 @@ public class JuegoAhorcado {
             }
             return 0;
 		}else return -1;
-
 	}
 	/*FRAN*/
 	
