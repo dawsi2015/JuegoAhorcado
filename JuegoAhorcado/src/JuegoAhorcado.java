@@ -6,13 +6,14 @@ public class JuegoAhorcado {
 		Scanner lector = new Scanner(System.in);
 	char[] letras = {'A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J', 'K', 'L', 'M', 'N',
  			'Ñ', 'O','P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'};
+        /*FRAN*/
         String palabra_buena;
         int tam=0,contador=0,ok=0,intento=0;
         String[] palabras = new String[]{"tren", "coche", "repisa", "hola", "diez", "ordenador", "tomate", "monitor", "castillo", "ventana"};
         char[] array_resultado;
         String letra;
-        palabra_buena = palabras[(int) (Math.random() * 10)];
-        tam = palabra_buena.length();
+        palabra_buena = palabras[(int) (Math.random() * 10)]; //Selecciona de forma aleatoria una de las 10 palabras.
+        tam = palabra_buena.length(); // Se calcula la longitud de la palabra para dibujar '-'.
         array_resultado = new char[tam];
         
         for (int i = 0; i<tam; i++) {
@@ -25,11 +26,13 @@ public class JuegoAhorcado {
         do{
         System.out.print("Elige letra:");
         letra=lector.next();
-        ok = adivina(palabra_buena,array_resultado,letra,tam);
-        if (ok==-1)intento++;
+        ok = adivina(palabra_buena,array_resultado,letra,tam); // La función nos devuelve 0 si encuentra la letra y -1 si no la encuentra.
+        if (ok==-1)intento++; // Si no la encuentra '-1' contará como un intento
         System.out.print("palabra: ");
-        System.out.println(array_resultado);
-        }while(intento<6);
+        System.out.println(array_resultado); // Dibuja de nuevo la palabra con las letras acertadas
+        }while(intento<6);// Números de intentos 6
+        
+        /*FRAN*/
         
          /*
         char letra = ' ';
@@ -51,6 +54,8 @@ public class JuegoAhorcado {
         
 	}
 	
+	/*FRAN*/
+	/*Función para comprobar si la letra introducida está dentro de alguna de la palabra a adivinar*/
 	static int adivina(String palabra_buena,char[] array_resultado,String letra,int tam){
 		if (palabra_buena.contains(letra)) {
             for (int i = 0; i<tam; i++) {
@@ -62,6 +67,10 @@ public class JuegoAhorcado {
 		}else return -1;
 
 	}
+	/*FRAN*/
+	
+	
+	
 	public static int tachar_letras(char[] letras, char letra){
  		int i=0;
  		char letraUP;
