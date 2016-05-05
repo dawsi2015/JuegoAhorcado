@@ -27,7 +27,7 @@ public class JuegoAhorcado {
         ok = adivina(palabra_buena,array_resultado,letra,tam); // La función nos devuelve 0 si encuentra la letra y -1 si no la encuentra.
         if (ok==-1)intento++; // Si no la encuentra '-1' contará como un intento
         System.out.print("palabra: ");
-        System.out.println(array_resultado); // Dibuja de nuevo la palabra con las letras acertadas
+        System.out.println(array_resultado); // Dibuja de nuevo la palabra mostrando las letras acertadas
         }while(intento<6);// El números de intentos es 6
         /*FRAN*/
         
