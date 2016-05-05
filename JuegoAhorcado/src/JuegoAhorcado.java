@@ -28,7 +28,7 @@ public class JuegoAhorcado {
         if (ok==-1)intento++; // Si no la encuentra '-1' contará como un intento
         System.out.print("palabra: ");
         System.out.println(array_resultado); // Dibuja de nuevo la palabra con las letras acertadas
-        }while(intento<6);// Números de intentos 6
+        }while(intento<6);// El números de intentos es 6
         /*FRAN*/
         
          /*
