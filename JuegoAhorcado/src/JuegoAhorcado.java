@@ -2,10 +2,12 @@ import java.util.Scanner;
 
 public class JuegoAhorcado {
 
+	
 	public static void main(String[] args) {
 		Scanner lector = new Scanner(System.in);
+	/*ALBA*/
 	char[] letras = {'A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J', 'K', 'L', 'M', 'N',
- 			'Ñ', 'O','P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'};
+ 			'Ñ', 'O','P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'};/*ALBA*/
         /*FRAN*/
         String palabra_buena;
         int tam=0,contador=0,ok=0,intento=0;
@@ -31,7 +33,7 @@ public class JuegoAhorcado {
         }while(intento<6);// El números de intentos es 6
         /*FRAN*/
         
-         /*
+         /* ALBA
         char letra = ' ';
 	int i=0;
 	String temp;
@@ -46,7 +48,7 @@ public class JuegoAhorcado {
 	 	else if(i==-2) System.out.println("Tiene que ser una letra de la 'A' a la 'Z'.");
 	 	else System.out.println(letras);
 	 }while(i!=-2 ); 
-        */
+        ALBA */   
         
         
 	}
@@ -66,18 +68,19 @@ public class JuegoAhorcado {
 	/*FRAN*/
 	
 	
-	
-	public static int tachar_letras(char[] letras, char letra){
+	/*ALBA*/
+	//Tacha la letra que le pases y lo muetra por pantalla. Devuelve: -2 Si no es una letra(A-Z), -1 si ya estaba tachada, 0 si correcto.
+	public static int tachar_letras(char[] letras, char letra){	
  		int i=0;
  		char letraUP;
  		
  		letraUP=Character.toUpperCase(letra);  //Pasamos la letra a mayúscula por si acaso.
  		   
- 		if(!Character.isLetter(letraUP))return -2;
+ 		if(!Character.isLetter(letraUP))return -2; 
  		while(letras[i]!=(letraUP) && i<25){
  			i++;
  		}
- 		if(letras[i]!=(letraUP))return -1;
+ 		if(letras[i]!=(letraUP))return -1;	
  		else {
  			letras[i]='-';
  			return 0;
