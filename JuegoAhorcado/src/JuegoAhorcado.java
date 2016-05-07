@@ -30,7 +30,6 @@ public class JuegoAhorcado {
 				Scanner in=new Scanner( new File("palabra.txt"));
 				while(in.hasNext()){
 					 palabras[n++] =in.next();
-					 in.close();
 				}
 				
 			}catch (FileNotFoundException e){
