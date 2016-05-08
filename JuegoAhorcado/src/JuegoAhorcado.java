@@ -50,14 +50,18 @@ public class JuegoAhorcado {
 	        	array_resultado[i] = '-';
 	        }
 	        
-	        
+	        dibujar(intento); //dibuja la primera figura del ahorcado
 	        System.out.print("palabra: ");
 	        System.out.println(array_resultado);
+	        
 	        do{
 	        System.out.print("Elige letra:");
 	        letra=lector.next();
 	        ok = adivina(palabra_buena,array_resultado,letra,tam); // La función nos devuelve 0 si encuentra la letra y -1 si no la encuentra.
-	        if (ok==-1)intento++; // Si no la encuentra '-1' contará como un intento
+	        if (ok==-1){ // Si no la encuentra '-1' contará como un intento
+	        	intento++;
+	        	dibujar(intento);//*Cesar* dibuja la siguiente figura despues de fallar
+	        }
 	        System.out.print("palabra: ");
 	        System.out.println(array_resultado); // Dibuja de nuevo la palabra mostrando las letras acertadas
 	        }while(intento<6);// El números de intentos es 6
@@ -117,5 +121,127 @@ public class JuegoAhorcado {
 	 		}
 	 	
 	 	}
+	 	/*Cesar*/
+	 	//Se le introduce los intentos y asi va cambiando el dibujo teniendo 6 intentos. tiene aun un problema con los dibujos con la barra invertida.
+	 	private static void dibujar(int i) {
+
+		switch (i) {
+
+		case 0:
+
+			System.out.println(" ________");
+			System.out.println(" |       |");
+			System.out.println(" |       ");
+			System.out.println(" | ");
+			System.out.println(" | ");
+			System.out.println(" | ");
+			System.out.println("_|_");
+		
+
+		System.out.println("__________");
+
+		break;
+
+		case 1:
+
+		System.out.println(" ________");
+		System.out.println(" |       |");
+		System.out.println(" |       O");
+		System.out.println(" | ");
+		System.out.println(" | ");
+		System.out.println(" | ");
+		System.out.println("_|_");
+
+	
+
+		System.out.println("__________");
+
+		break;
+
+		case 2:
+
+			System.out.println(" ________");
+			System.out.println(" |       |");
+			System.out.println(" |       O");
+			System.out.println(" |       |");
+			System.out.println(" | ");
+			System.out.println(" | ");
+			System.out.println("_|_");
+
+		
+
+		System.out.println("__________");
+
+		break;
+
+		case 3:
+
+			System.out.println(" ________");
+			System.out.println(" |       |");
+			System.out.println(" |       O");
+			System.out.println(" |      /|");
+			System.out.println(" | ");
+			System.out.println(" | ");
+			System.out.println("_|_");
+
+	
+
+		System.out.println("__________");
+
+		break;
+
+		case 4:
+
+			System.out.println(" ________");
+			System.out.println(" |       |");
+			System.out.println(" |       O");
+			System.out.println(" |      /|\");
+			System.out.println(" |       ");
+			System.out.println(" | ");
+			System.out.println("_|_");
+	
+
+		System.out.println("__________");
+
+		break;
+
+		case 5:
+
+			System.out.println(" ________");
+			System.out.println(" |       |");
+			System.out.println(" |       O");
+			System.out.println(" |      /|\");
+			System.out.println(" |      / ");
+			System.out.println(" | ");
+			System.out.println("_|_");
+
+		
+
+		System.out.println("__________");
+
+		break;
+
+		case 6:
+
+			System.out.println(" ________");
+			System.out.println(" |       |");
+			System.out.println(" |       O");
+			System.out.println(" |      /|\");
+			System.out.println(" |      / \");
+			System.out.println(" | ");
+			System.out.println("_|_");
+
+		
+
+		System.out.println("__________");
+
+		System.out.println("GAME OVER");
+
+		break;
+
+		}
+
+		}
+}
 
 	}
