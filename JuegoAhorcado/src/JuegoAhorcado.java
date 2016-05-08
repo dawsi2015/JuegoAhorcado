@@ -41,7 +41,7 @@ public class JuegoAhorcado {
 	        char[] array_resultado;
 	        String letra;
 	        palabra_buena = palabras[(int) (Math.random() * n_palabras/*jordi change*/)]; //Selecciona de forma aleatoria una de las 10 palabras.
-	        tam = palabra_buena.length(); // Se calcula la longitud de la palabra para dibujar '-'.
+	        tam = palabra_buena.length(); // Se calcula la longitud de la palabra para dibujar '-' aqui da error.
 	        array_resultado = new char[tam];
 	        for (int i = 0; i<tam; i++) {
 	        	array_resultado[i] = '-';
