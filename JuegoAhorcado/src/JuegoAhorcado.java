@@ -13,30 +13,27 @@ public class JuegoAhorcado {
 		/*jordi
 		 * Lee las palabras i las guarga en un string
 		 * es el apartado c i d */
-		int n_palabras = 0;
+		int n_palabras=0;	
 		try{
-			Scanner in = new Scanner(new File("palabra.txt"));
-			String num_palabras=in.next();//lee el numero de palabras que tiene el fichero
-			 n_palabras=Integer.parseInt(num_palabras);
-			 System.out.println("hay "+n_palabras+" palapras");
+			Scanner in=new Scanner( new File("palabra.txt"));
+			if(in.hasNext()){
+				String num_palabras=in.next();//lee el numero de palabras que tiene el fichero
+				 n_palabras=Integer.parseInt(num_palabras);
+				 System.out.println("hay "+n_palabras+" palapras");			
+				 String[] palabras=new String[n_palabras];
+
+				 int n=0;
+				while(in.hasNext()){ //lee las palabras
+					 String palabra=in.next();
+					 palabras[n++] = palabra;
+					 System.out.println(palabra);
+			}
+			}
 		}catch (FileNotFoundException e){
 			   System.out.println("error no se encuntra el fichero");
 			       }
-		int n=1;
-		
-		 	String[] palabras=new String[n_palabras];
+		 String[] palabras=new String[n_palabras];
 
-			try{
-				Scanner in=new Scanner( new File("palabra.txt"));
-				while(in.hasNext()){
-					 palabras[n++] =in.next();
-				}
-				
-			}catch (FileNotFoundException e){
-				   System.out.println("error no se encuntra el fichero");
-				       }
-			for(n=1;n<n_palabras;n++)
-				System.out.println(palabras[n]);
 		/* ######################################### */
 			/*FRAN*/
 	        String palabra_buena;
@@ -195,7 +192,7 @@ public class JuegoAhorcado {
 			System.out.println(" ________");
 			System.out.println(" |       |");
 			System.out.println(" |       O");
-			System.out.println(" |      /|\");
+			System.out.println(" |      /|\"");
 			System.out.println(" |       ");
 			System.out.println(" | ");
 			System.out.println("_|_");
@@ -210,7 +207,7 @@ public class JuegoAhorcado {
 			System.out.println(" ________");
 			System.out.println(" |       |");
 			System.out.println(" |       O");
-			System.out.println(" |      /|\");
+			System.out.println(" |      /|\"");
 			System.out.println(" |      / ");
 			System.out.println(" | ");
 			System.out.println("_|_");
@@ -226,8 +223,8 @@ public class JuegoAhorcado {
 			System.out.println(" ________");
 			System.out.println(" |       |");
 			System.out.println(" |       O");
-			System.out.println(" |      /|\");
-			System.out.println(" |      / \");
+			System.out.println(" |      /|\"");
+			System.out.println(" |      / \"");
 			System.out.println(" | ");
 			System.out.println("_|_");
 
@@ -242,6 +239,4 @@ public class JuegoAhorcado {
 		}
 
 		}
-}
-
 	}
