@@ -8,7 +8,7 @@ public class JuegoAhorcado {
 public static void main(String[] args){
 		Scanner lector = new Scanner(System.in);
 		int n_palabras=0;
-		String[] palabras=new String[n_palabras];
+		String[] palabras=new String[];
 
 		/*ALBA*/
 		char[] letras = {'A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J', 'K', 'L', 'M', 'N',
