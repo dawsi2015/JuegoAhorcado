@@ -18,7 +18,7 @@ public static void main(String[] args){
 		/*jordi
 		 * Lee las palabras i las guarda en un string
 		 * es el apartado c i d */
-	leer_fichero(n_palabras);
+		n_palabras=leer_fichero(n_palabras, palabras);
 
 			/* ######################################### */
 			/*FRAN*/
@@ -83,11 +83,36 @@ public static void main(String[] args){
 		}else return -1;
 	}
 	/*FRAN*/
+	/*Jordi*/
+public static int leer_fichero(int n_palabras, String[] palabras){
+	try{
+		Scanner in = new Scanner( new File("palabra.txt"));
+		if(in.hasNext()){
+			String num_palabras=in.next();//lee el numero de palabras que tiene el fichero
+			n_palabras=Integer.parseInt(num_palabras);
+			System.out.println("hay "+n_palabras+" palabras");			
+			
+			int n=0;
+			while(in.hasNext()){ //lee las palabras
+				String palabra=in.next();
+				palabras[n++] = palabra;
+				System.out.println(palabra);
+			}
+		}
+	}catch (FileNotFoundException e){
+		System.out.println("Error, no se encuntra el fichero");
+	}
+	return n_palabras;
+	
+	}
+
+
+
 
 	/*jordi
 	 * Lee las palabras i las guarda en un string
 	 * es el apartado c i d */
-	public static void leer_fichero(int n_palabras){
+	/*public static void leer_fichero(int n_palabras){
 		
 	try{
 		Scanner in = new Scanner( new File("palabra.txt"));
