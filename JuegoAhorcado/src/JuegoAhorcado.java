@@ -135,7 +135,7 @@ public class JuegoAhorcado {
 			System.out.println("_|_");
 		
 
-		System.out.println("__________");
+		
 
 		break;
 
@@ -151,7 +151,7 @@ public class JuegoAhorcado {
 
 	
 
-		System.out.println("__________");
+		
 
 		break;
 
@@ -167,7 +167,7 @@ public class JuegoAhorcado {
 
 		
 
-		System.out.println("__________");
+		
 
 		break;
 
@@ -183,7 +183,7 @@ public class JuegoAhorcado {
 
 	
 
-		System.out.println("__________");
+		
 
 		break;
 
@@ -198,7 +198,7 @@ public class JuegoAhorcado {
 			System.out.println("_|_");
 	
 
-		System.out.println("__________");
+		
 
 		break;
 
@@ -214,8 +214,7 @@ public class JuegoAhorcado {
 
 		
 
-		System.out.println("__________");
-
+		
 		break;
 
 		case 6:
@@ -230,9 +229,9 @@ public class JuegoAhorcado {
 
 		
 
-		System.out.println("__________");
+		
 
-		System.out.println("GAME OVER");
+		System.out.println("Has perdido");
 
 		break;
 
