@@ -8,7 +8,7 @@ public class JuegoAhorcado {
 public static void main(String[] args){
 		Scanner lector = new Scanner(System.in);
 		int n_palabras=0;
-		String[] palabras=new String[];
+		String[] palabras;
 
 		/*ALBA*/
 		char[] letras = {'A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J', 'K', 'L', 'M', 'N',
@@ -27,6 +27,7 @@ public static void main(String[] args){
 			int tam=0,contador=0,ok=0,intento=0;
 			char[] array_resultado;
 			String letra;
+			
 			palabra_buena = palabras[(int) (Math.random() * n_palabras/*jordi change*/)]; //Selecciona de forma aleatoria una de las 10 palabras.
 			tam = palabra_buena.length(); // Se calcula la longitud de la palabra para dibujar '-' aqui da error.
 			array_resultado = new char[tam];
@@ -94,6 +95,7 @@ public static void main(String[] args){
 		if(in.hasNext()){
 			String num_palabras=in.next();//lee el numero de palabras que tiene el fichero
 			n_palabras=Integer.parseInt(num_palabras);
+			palabras=new String[n_palabras];
 			System.out.println("hay "+n_palabras+" palabras");			
 			
 			int n=0;
