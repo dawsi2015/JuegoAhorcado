@@ -119,7 +119,7 @@ public class JuegoAhorcado {
 	 	
 	 	}
 	 	/*Cesar*/
-	 	//Se le introduce los intentos y asi va cambiando el dibujo teniendo 6 intentos. tiene aun un problema con los dibujos con la barra invertida.
+	 	//Se le introduce los intentos y asi va cambiando el dibujo teniendo 6 intentos. 
 	 	private static void dibujar(int i) {
 
 		switch (i) {
