@@ -5,8 +5,11 @@ public class JuegoAhorcado {
 
 
 
-	public static void main(String[] args){
+public static void main(String[] args){
 		Scanner lector = new Scanner(System.in);
+		int n_palabras=0;
+		String[] palabras=new String[n_palabras];
+
 		/*ALBA*/
 		char[] letras = {'A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J', 'K', 'L', 'M', 'N',
 				'O','P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'};
@@ -15,26 +18,7 @@ public class JuegoAhorcado {
 		/*jordi
 		 * Lee las palabras i las guarda en un string
 		 * es el apartado c i d */
-		int n_palabras=0;	
-		try{
-			Scanner in = new Scanner( new File("palabra.txt"));
-			if(in.hasNext()){
-				String num_palabras=in.next();//lee el numero de palabras que tiene el fichero
-				n_palabras=Integer.parseInt(num_palabras);
-				System.out.println("hay "+n_palabras+" palabras");			
-				String[] palabras=new String[n_palabras];
-
-				int n=0;
-				while(in.hasNext()){ //lee las palabras
-					String palabra=in.next();
-					palabras[n++] = palabra;
-					System.out.println(palabra);
-				}
-				//in.close();
-			}
-		}catch (FileNotFoundException e){
-			System.out.println("Error, no se encuntra el fichero");
-			String[] palabras=new String[n_palabras];
+	leer_fichero(n_palabras);
 
 			/* ######################################### */
 			/*FRAN*/
@@ -68,23 +52,23 @@ public class JuegoAhorcado {
 
 			
 			/* ALBA */ 
-	        char letra = ' ';
+	        char letra1= ' ';
 		int i=0;
 		String temp;
 		do{
 			System.out.print("Escribe una letra:");
 			temp=lector.nextLine();
 			if (temp.length() == 1) {
-				letra = temp.charAt(0);
+				letra1 = temp.charAt(0);
 			}else System.out.println("Tienes que escribir solo una letra.");
-			i = tachar_letras(letras, letra);
+			i = tachar_letras(letras, letra1);
 		 	if (i==-1) System.out.println("Esta letra ya está dicha.");
 		 	else if(i==-2) System.out.println("Tiene que ser una letra de la 'A' a la 'Z'.");
 		 	else System.out.println(letras);
 		 }while(i!=-2 ); 
 	       /* ALBA */   
 		}
-	}
+	
 
 	/*FRAN*/
 	/*Función para comprobar si la letra introducida está dentro de alguna de la palabra a adivinar*/
@@ -100,7 +84,32 @@ public class JuegoAhorcado {
 	}
 	/*FRAN*/
 
+	/*jordi
+	 * Lee las palabras i las guarda en un string
+	 * es el apartado c i d */
+	public static void leer_fichero(int n_palabras){
+		
+	try{
+		Scanner in = new Scanner( new File("palabra.txt"));
+		if(in.hasNext()){
+			String num_palabras=in.next();//lee el numero de palabras que tiene el fichero
+			n_palabras=Integer.parseInt(num_palabras);
+			System.out.println("hay "+n_palabras+" palabras");			
+			String[] palabras=new String[n_palabras];
 
+			int n=0;
+			while(in.hasNext()){ //lee las palabras
+				String palabra=in.next();
+				palabras[n++] = palabra;
+				System.out.println(palabra);
+			}
+			//in.close();
+		}
+	}catch (FileNotFoundException e){
+		System.out.println("Error, no se encuntra el fichero");
+	}
+	}
+		/* ######################################### */
 	/*ALBA*/
 	//Tacha la letra que le pases y lo muetra por pantalla. Devuelve: -2 Si no es una letra(A-Z), -1 si ya estaba tachada, 0 si correcto.
 	public static int tachar_letras(char[] letras, char letra){	
@@ -214,4 +223,5 @@ public class JuegoAhorcado {
 		}
 
 	}
+	
 }
