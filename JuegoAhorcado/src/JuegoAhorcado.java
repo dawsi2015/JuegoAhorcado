@@ -147,7 +147,9 @@ public static void main(String[] args){
 			System.out.println(" | ");
 			System.out.println(" | ");
 			System.out.println("_|_");
-
+			
+			System.out.println("bienvenido al juego del ahorcado");
+			System.out.println("tienes 6 intentos, suerte!!!");
 			break;
 
 		case 1:
