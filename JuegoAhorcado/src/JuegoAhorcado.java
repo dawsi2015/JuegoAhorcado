@@ -167,7 +167,7 @@ public class JuegoAhorcado {
 			System.out.println(" ________");
 			System.out.println(" |       |");
 			System.out.println(" |       O");
-			System.out.println(" |      /|");
+			System.out.println(" |      /|\\");
 			System.out.println(" | ");
 			System.out.println(" | ");
 			System.out.println("_|_");
@@ -179,7 +179,7 @@ public class JuegoAhorcado {
 			System.out.println(" ________");
 			System.out.println(" |       |");
 			System.out.println(" |       O");
-			System.out.println(" |      /|\"");
+			System.out.println(" |      /|\\);
 			System.out.println(" |       ");
 			System.out.println(" | ");
 			System.out.println("_|_");
@@ -191,7 +191,7 @@ public class JuegoAhorcado {
 			System.out.println(" ________");
 			System.out.println(" |       |");
 			System.out.println(" |       O");
-			System.out.println(" |      /|\"");
+			System.out.println(" |      /|\\);
 			System.out.println(" |      / ");
 			System.out.println(" | ");
 			System.out.println("_|_");
@@ -203,8 +203,8 @@ public class JuegoAhorcado {
 			System.out.println(" ________");
 			System.out.println(" |       |");
 			System.out.println(" |       O");
-			System.out.println(" |      /|\"");
-			System.out.println(" |      / \"");
+			System.out.println(" |      /|\\);
+			System.out.println(" |      / \\);
 			System.out.println(" | ");
 			System.out.println("_|_");
 
