@@ -7,8 +7,8 @@ public class JuegoAhorcado {
 
 public static void main(String[] args){
 		Scanner lector = new Scanner(System.in);
-		int n_palabras=0;
-		String[] palabras;
+		int n_palabras=0, i=0;
+		String[] palabras=null;
 
 		/*ALBA*/
 		char[] letras = {'A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J', 'K', 'L', 'M', 'N',
@@ -18,20 +18,21 @@ public static void main(String[] args){
 		/*jordi
 		 * Lee las palabras i las guarda en un string
 		 * es el apartado c i d */
-			n_palabras=leer_fichero(n_palabras, palabras);
+		palabras=leer_fichero();
 
-
+		n_palabras = palabras.length;
+		
 			/* ######################################### */
 			/*FRAN*/
 			String palabra_buena;
 			int tam=0,contador=0,ok=0,intento=0;
 			char[] array_resultado;
+			boolean correcto = false;
 			String letra;
-			
 			palabra_buena = palabras[(int) (Math.random() * n_palabras/*jordi change*/)]; //Selecciona de forma aleatoria una de las 10 palabras.
 			tam = palabra_buena.length(); // Se calcula la longitud de la palabra para dibujar '-' aqui da error.
 			array_resultado = new char[tam];
-			for (int i = 0; i<tam; i++) {
+			for (i = 0; i<tam; i++) {
 				array_resultado[i] = '-';
 			}
 
@@ -39,6 +40,7 @@ public static void main(String[] args){
 			System.out.print("palabra: ");
 			System.out.println(array_resultado);
 
+			
 			do{
 				System.out.print("Elige letra:");
 				letra=lector.next();
@@ -49,26 +51,19 @@ public static void main(String[] args){
 				}
 				System.out.print("palabra: ");
 				System.out.println(array_resultado); // Dibuja de nuevo la palabra mostrando las letras acertadas
-			}while(intento<6); // El números de intentos es 6
+				tachar_letras(letras, letra);
+				if (i==-1) System.out.println("Esta letra ya está dicha.");
+			 	else if(i==-2) System.out.println("Tiene que ser una letra de la 'A' a la 'Z'.");
+			 	else System.out.println(letras);
+				
+				String result= String.copyValueOf(array_resultado);
+				if(result.equals(palabra_buena))correcto=true;
+			}while(intento<6 && !correcto); // El números de intentos es 6
+			System.out.print("Has ganado!!");
+
 			/*FRAN*/
 
 			
-			/* ALBA */ 
-	        char letra1= ' ';
-		int i=0;
-		String temp;
-		do{
-			System.out.print("Escribe una letra:");
-			temp=lector.nextLine();
-			if (temp.length() == 1) {
-				letra1 = temp.charAt(0);
-			}else System.out.println("Tienes que escribir solo una letra.");
-			i = tachar_letras(letras, letra1);
-		 	if (i==-1) System.out.println("Esta letra ya está dicha.");
-		 	else if(i==-2) System.out.println("Tiene que ser una letra de la 'A' a la 'Z'.");
-		 	else System.out.println(letras);
-		 }while(i!=-2 ); 
-	       /* ALBA */   
 		}
 	
 
@@ -89,16 +84,18 @@ public static void main(String[] args){
 	/*jordi
 	 * Lee las palabras i las guarda en un string
 	 * es el apartado c i d */
-		public static int leer_fichero(int n_palabras, String[] palabras){
+		public static String[] leer_fichero( ){
+			int n_palabras=0;
+			String[] palabras = null;
 	try{
 		Scanner in = new Scanner( new File("palabra.txt"));
 		if(in.hasNext()){
 			String num_palabras=in.next();//lee el numero de palabras que tiene el fichero
 			n_palabras=Integer.parseInt(num_palabras);
-			palabras=new String[n_palabras];
 			System.out.println("hay "+n_palabras+" palabras");			
 			
 			int n=0;
+			palabras= new String[n_palabras];
 			while(in.hasNext()){ //lee las palabras
 				String palabra=in.next();
 				palabras[n++] = palabra;
@@ -108,21 +105,22 @@ public static void main(String[] args){
 	}catch (FileNotFoundException e){
 		System.out.println("Error, no se encuntra el fichero");
 	}
-	return n_palabras;
+	return palabras;
 	
 	}
-	}
+	
 		/* ######################################### */
 	/*ALBA*/
 	//Tacha la letra que le pases y lo muetra por pantalla. Devuelve: -2 Si no es una letra(A-Z), -1 si ya estaba tachada, 0 si correcto.
-	public static int tachar_letras(char[] letras, char letra){	
+	public static int tachar_letras(char[] letras, String letra){	
 		int i=0;
+		char letra2 = letra.charAt(0);
 		char letraUP;
 
-		letraUP=Character.toUpperCase(letra);  //Pasamos la letra a mayúscula por si acaso.
+		letraUP=Character.toUpperCase(letra2);  //Pasamos la letra a mayúscula por si acaso.
 
 		if(!Character.isLetter(letraUP))return -2; 
-		while(letras[i]!=(letraUP) && i<25){
+		while(letras[i]!=(letraUP) && i<=25){
 			i++;
 		}
 		if(letras[i]!=(letraUP))return -1;	
@@ -147,9 +145,7 @@ public static void main(String[] args){
 			System.out.println(" | ");
 			System.out.println(" | ");
 			System.out.println("_|_");
-			
-			System.out.println("bienvenido al juego del ahorcado");
-			System.out.println("tienes 6 intentos, suerte!!!");
+
 			break;
 
 		case 1:
