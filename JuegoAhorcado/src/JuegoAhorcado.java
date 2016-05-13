@@ -51,7 +51,7 @@ public static void main(String[] args){
 				}
 				System.out.print("palabra: ");
 				System.out.println(array_resultado); // Dibuja de nuevo la palabra mostrando las letras acertadas
-				tachar_letras(letras, letra);
+				i=tachar_letras(letras, letra);
 				if (i==-1) System.out.println("Esta letra ya está dicha.");
 			 	else if(i==-2) System.out.println("Tiene que ser una letra de la 'A' a la 'Z'.");
 			 	else System.out.println(letras);
@@ -119,7 +119,7 @@ public static void main(String[] args){
 
 		letraUP=Character.toUpperCase(letra2);  //Pasamos la letra a mayúscula por si acaso.
 
-		if(!Character.isLetter(letraUP))return -2; 
+		if(!Character.isLetter(letraUP))return -2;  
 		while(letras[i]!=(letraUP) && i<=25){
 			i++;
 		}
