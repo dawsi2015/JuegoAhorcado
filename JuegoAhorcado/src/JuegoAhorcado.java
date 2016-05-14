@@ -99,7 +99,6 @@ public static void main(String[] args){
 			while(in.hasNext()){ //lee las palabras
 				String palabra=in.next();
 				palabras[n++] = palabra;
-				System.out.println(palabra);
 			}
 		}
 	}catch (FileNotFoundException e){
