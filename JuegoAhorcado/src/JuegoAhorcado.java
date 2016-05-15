@@ -1,18 +1,13 @@
 import java.io.*;
 import java.util.*;
-
 public class JuegoAhorcado {
-
-
-
-public static void main(String[] args){
+	public static void main(String[] args){
 		Scanner lector = new Scanner(System.in);
-		int n_palabras=0, i=0;
+		int n_palabras=0, i=0, j=0;
 		String[] palabras=null;
 
 		/*ALBA*/
-		char[] letras = {'A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J', 'K', 'L', 'M', 'N',
-				'O','P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'};
+		char[] letras = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 		/*ALBA*/
 
 		/*jordi
@@ -21,51 +16,58 @@ public static void main(String[] args){
 		palabras=leer_fichero();
 
 		n_palabras = palabras.length;
-		
-			/* ######################################### */
-			/*FRAN*/
-			String palabra_buena;
-			int tam=0,contador=0,ok=0,intento=0;
-			char[] array_resultado;
-			boolean correcto = false;
-			String letra;
-			palabra_buena = palabras[(int) (Math.random() * n_palabras/*jordi change*/)]; //Selecciona de forma aleatoria una de las 10 palabras.
-			tam = palabra_buena.length(); // Se calcula la longitud de la palabra para dibujar '-' aqui da error.
-			array_resultado = new char[tam];
-			for (i = 0; i<tam; i++) {
-				array_resultado[i] = '-';
-			}
 
-			dibujar(intento); //dibuja la primera figura del ahorcado
-			System.out.print("palabra: ");
-			System.out.println(array_resultado);
+		/* ######################################### */
+		/*FRAN*/
+		String palabra_buena;
+		int tam=0,contador=0,ok=0,intento=0;
+		char[] array_resultado;
+		boolean correcto = false;
+		String letra;
+		palabra_buena = palabras[(int) (Math.random() * n_palabras/*jordi change*/)]; //Selecciona de forma aleatoria una de las 10 palabras.
+		tam = palabra_buena.length(); // Se calcula la longitud de la palabra para dibujar '-' aqui da error.
+		array_resultado = new char[tam];
+		for (i = 0; i<tam; i++) {
+			array_resultado[i] = '-';
+		}
 
-			
-			do{
-				System.out.print("Elige letra:");
-				letra=lector.next();
+		System.out.println("JUEGO DEL AHORCADO");
+		dibujar(intento); //dibuja la primera figura del ahorcado
+		System.out.print("palabra: ");
+		System.out.println(array_resultado);
+		System.out.println(letras);
+		System.out.println("Elige letra:");
+
+		do{		
+			letra=lector.next();
+			i=tachar_letras(letras, letra);
+			if (i==-1) System.out.println("Esta letra ya está dicha.");
+			else if(i==-2) System.out.println("Tiene que ser una letra de la 'A' a la 'Z'.");
+			else if (i==0){
 				ok = adivina(palabra_buena,array_resultado,letra,tam); // La función nos devuelve 0 si encuentra la letra y -1 si no la encuentra.
 				if (ok==-1){ // Si no la encuentra '-1' contará como un intento
 					intento++;
 					dibujar(intento);//*Cesar* dibuja la siguiente figura despues de fallar
-				}
+				}else dibujar(intento);
+			}
+			if (intento<6){
 				System.out.print("palabra: ");
 				System.out.println(array_resultado); // Dibuja de nuevo la palabra mostrando las letras acertadas
-				i=tachar_letras(letras, letra);
-				if (i==-1) System.out.println("Esta letra ya está dicha.");
-			 	else if(i==-2) System.out.println("Tiene que ser una letra de la 'A' a la 'Z'.");
-			 	else System.out.println(letras);
-				
-				String result= String.copyValueOf(array_resultado);
-				if(result.equals(palabra_buena))correcto=true;
-			}while(intento<6 && !correcto); // El números de intentos es 6
-			System.out.print("Has ganado!!");
-
-			/*FRAN*/
-
+				System.out.println(letras);
+				System.out.println("Elige letra:");
+			}
+			String result= String.copyValueOf(array_resultado);
+			if(result.equals(palabra_buena))correcto=true;
 			
-		}
-	
+		}while(intento<6 && !correcto); // El números de intentos es 6
+		if (correcto)System.out.print("HAS GANADO!!");
+		else System.out.println("Has perdido!!");
+
+		/*FRAN*/
+
+
+	}
+
 
 	/*FRAN*/
 	/*Función para comprobar si la letra introducida está dentro de alguna de la palabra a adivinar*/
@@ -84,31 +86,31 @@ public static void main(String[] args){
 	/*jordi
 	 * Lee las palabras i las guarda en un string
 	 * es el apartado c i d */
-		public static String[] leer_fichero( ){
-			int n_palabras=0;
-			String[] palabras = null;
-	try{
-		Scanner in = new Scanner( new File("palabra.txt"));
-		if(in.hasNext()){
-			String num_palabras=in.next();//lee el numero de palabras que tiene el fichero
-			n_palabras=Integer.parseInt(num_palabras);
-			System.out.println("hay "+n_palabras+" palabras");			
-			
-			int n=0;
-			palabras= new String[n_palabras];
-			while(in.hasNext()){ //lee las palabras
-				String palabra=in.next();
-				palabras[n++] = palabra;
+	public static String[] leer_fichero( ){
+		int n_palabras=0;
+		String[] palabras = null;
+		try{
+			Scanner in = new Scanner( new File("palabra.txt"));
+			if(in.hasNext()){
+				String num_palabras=in.next();//lee el numero de palabras que tiene el fichero
+				n_palabras=Integer.parseInt(num_palabras);
+				//System.out.println("hay "+n_palabras+" palabras");			
+
+				int n=0;
+				palabras= new String[n_palabras];
+				while(in.hasNext()){ //lee las palabras
+					String palabra=in.next();
+					palabras[n++] = palabra;
+				}
 			}
+		}catch (FileNotFoundException e){
+			System.out.println("Error, no se encuntra el fichero");
 		}
-	}catch (FileNotFoundException e){
-		System.out.println("Error, no se encuntra el fichero");
+		return palabras;
+
 	}
-	return palabras;
-	
-	}
-	
-		/* ######################################### */
+
+	/* ######################################### */
 	/*ALBA*/
 	//Tacha la letra que le pases y lo muetra por pantalla. Devuelve: -2 Si no es una letra(A-Z), -1 si ya estaba tachada, 0 si correcto.
 	public static int tachar_letras(char[] letras, String letra){	
@@ -119,7 +121,7 @@ public static void main(String[] args){
 		letraUP=Character.toUpperCase(letra2);  //Pasamos la letra a mayúscula por si acaso.
 
 		if(!Character.isLetter(letraUP))return -2;  
-		while(letras[i]!=(letraUP) && i<=25){
+		while(letras[i]!=(letraUP) && i<27){
 			i++;
 		}
 		if(letras[i]!=(letraUP))return -1;	
@@ -176,7 +178,7 @@ public static void main(String[] args){
 			System.out.println(" ________");
 			System.out.println(" |       |");
 			System.out.println(" |       O");
-			System.out.println(" |      /|\\");
+			System.out.println(" |       |\\");
 			System.out.println(" | ");
 			System.out.println(" | ");
 			System.out.println("_|_");
@@ -223,5 +225,4 @@ public static void main(String[] args){
 		}
 
 	}
-	
 }
