@@ -121,8 +121,8 @@ public class JuegoAhorcado {
 		letraUP=Character.toUpperCase(letra2);  //Pasamos la letra a mayúscula por si acaso.
 
 		if(!Character.isLetter(letraUP))return -2;  
-		while(letras[i]!=(letraUP) && i<27){
-			i++;
+		while(letras[i]!=(letraUP) && i<26){ //Son 27 letras, pero java empieza a contar desde 0.
+			i++;			     // Si poniamos 27, daba una vulelta de más.
 		}
 		if(letras[i]!=(letraUP))return -1;	
 		else {
