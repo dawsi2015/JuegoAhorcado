@@ -7,7 +7,7 @@ public class JuegoAhorcado {
 		String[] palabras=null;
 
 		/*ALBA*/
-		char[] letras = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+		char[] letras = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', '�', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 		/*ALBA*/
 
 		/*jordi
@@ -39,8 +39,11 @@ public class JuegoAhorcado {
 		do{
 			letra=lector.next();
 			i=tachar_letras(letras, letra);
-			if (i==-1) System.out.println("Esta letra ya está dicha.");
-			else if(i==-2) System.out.println("Tiene que ser una letra de la 'A' a la 'Z'.");
+			if (i==-1) System.out.println("Esta letra ya est� dicha.");
+			else if(i==-2){
+				System.out.println("Tiene que ser una letra de la 'A' a la 'Z'.");
+				dibujar(intento);
+			}
 			else if (i==0){
 				ok = adivina(palabra_buena,array_resultado,letra,tam); // La función nos devuelve 0 si encuentra la letra y -1 si no la encuentra.
 				if (ok==-1){ // Si no la encuentra '-1' contará como un intento
@@ -57,14 +60,14 @@ public class JuegoAhorcado {
 			String result= String.copyValueOf(array_resultado);
 			if(result.equals(palabra_buena))correcto=true;
 			
-		}while(intento<6 && !correcto); // El números de intentos es 6
+		}while(intento<6 && !correcto); // El n�mero de intentos es 6
 		if (correcto)System.out.print("HAS GANADO!!");
 		else System.out.println("Has perdido!!");
 		/*FRAN*/
 	}
 
 	/*FRAN*/
-	/*Función para comprobar si la letra introducida está dentro de alguna de la palabra a adivinar*/
+	/*Funci�n para comprobar si la letra introducida está dentro de alguna de la palabra a adivinar*/
 	static int adivina(String palabra_buena,char[] array_resultado,String letra,int tam){
 		if (palabra_buena.contains(letra)) {
 			for (int i = 0; i<tam; i++) {
