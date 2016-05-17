@@ -14,17 +14,15 @@ public class JuegoAhorcado {
 		 * Lee las palabras i las guarda en un string
 		 * es el apartado c i d */
 		palabras=leer_fichero();
-
 		n_palabras = palabras.length;
 
-		/* ######################################### */
 		/*FRAN*/
 		String palabra_buena;
 		int tam=0,contador=0,ok=0,intento=0;
 		char[] array_resultado;
 		boolean correcto = false;
 		String letra;
-		palabra_buena = palabras[(int) (Math.random() * n_palabras/*jordi change*/)]; //Selecciona de forma aleatoria una de las 10 palabras.
+		palabra_buena = palabras[(int) (Math.random() * n_palabras)]; //Selecciona de forma aleatoria una de las 10 palabras.
 		tam = palabra_buena.length(); // Se calcula la longitud de la palabra para dibujar '-' aqui da error.
 		array_resultado = new char[tam];
 		for (i = 0; i<tam; i++) {
@@ -32,13 +30,13 @@ public class JuegoAhorcado {
 		}
 
 		System.out.println("JUEGO DEL AHORCADO");
-		dibujar(intento); //dibuja la primera figura del ahorcado
+		dibujar(intento);
 		System.out.print("palabra: ");
 		System.out.println(array_resultado);
 		System.out.println(letras);
 		System.out.println("Elige letra:");
 
-		do{		
+		do{
 			letra=lector.next();
 			i=tachar_letras(letras, letra);
 			if (i==-1) System.out.println("Esta letra ya está dicha.");
@@ -62,12 +60,8 @@ public class JuegoAhorcado {
 		}while(intento<6 && !correcto); // El números de intentos es 6
 		if (correcto)System.out.print("HAS GANADO!!");
 		else System.out.println("Has perdido!!");
-
 		/*FRAN*/
-
-
 	}
-
 
 	/*FRAN*/
 	/*Función para comprobar si la letra introducida está dentro de alguna de la palabra a adivinar*/
@@ -86,18 +80,16 @@ public class JuegoAhorcado {
 	/*jordi
 	 * Lee las palabras i las guarda en un string
 	 * es el apartado c i d */
-	public static String[] leer_fichero( ){
-		int n_palabras=0;
+	public static String[] leer_fichero(){
+		int n=0, n_palabras=0;
 		String[] palabras = null;
 		try{
 			Scanner in = new Scanner( new File("palabra.txt"));
 			if(in.hasNext()){
 				String num_palabras=in.next();//lee el numero de palabras que tiene el fichero
 				n_palabras=Integer.parseInt(num_palabras);
-				//System.out.println("hay "+n_palabras+" palabras");			
-
-				int n=0;
 				palabras= new String[n_palabras];
+				
 				while(in.hasNext()){ //lee las palabras
 					String palabra=in.next();
 					palabras[n++] = palabra;
@@ -110,7 +102,6 @@ public class JuegoAhorcado {
 
 	}
 
-	/* ######################################### */
 	/*ALBA*/
 	//Tacha la letra que le pases y lo muetra por pantalla. Devuelve: -2 Si no es una letra(A-Z), -1 si ya estaba tachada, 0 si correcto.
 	public static int tachar_letras(char[] letras, String letra){	
@@ -131,6 +122,7 @@ public class JuegoAhorcado {
 		}
 
 	}
+	
 	/*Cesar*/
 	//Se le introduce los intentos y asi va cambiando el dibujo teniendo 6 intentos. 
 	private static void dibujar(int i) {
@@ -219,7 +211,6 @@ public class JuegoAhorcado {
 			System.out.println(" | ");
 			System.out.println("_|_");
 
-			//System.out.println("Has perdido");
 			break;
 
 		}
